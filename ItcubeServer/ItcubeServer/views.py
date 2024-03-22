@@ -24,3 +24,9 @@ def plus(request):
         return HttpResponse(f"{result}")
     except ValueError:
         return HttpResponse("None")
+
+
+# http://127.0.0.1:8000/minus?a=8&b=2
+# http://127.0.0.1:8000/mul?a=8&b=2
+# http://127.0.0.1:8000/div?a=8&b=2
+# http://127.0.0.1:8000/sin?x=89
