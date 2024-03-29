@@ -14,16 +14,17 @@
     1. Импортируем функцию include(): from django.urls import include, path
     2. Добавьте URL в urlpatterns: path('blog/', include('blog.urls'))
 """
-
 # https://github.com/viltskaa/djangoTest/blob/main/itcubeSite/command.txt
 
 from django.contrib import admin
 from django.urls import path
-from .views import hello_world, add, plus
+from .views import hello_world, add, plus, parabola, parabola_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/<name>', hello_world),
     path('add/<int:n1>/<int:n2>', add),
-    path('plus/', plus)
+    path('plus/', plus),
+    path('parabola/form/', parabola_view),
+    path('parabola/calc/', parabola)
 ]
