@@ -18,13 +18,12 @@
 
 from django.contrib import admin
 from django.urls import path
-from .views import hello_world, add, plus, parabola, parabola_view
+from ItcubeServer.views.input_views import registration, profile, list_users
+from ItcubeServer.views.views import main
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('hello/<name>', hello_world),
-    path('add/<int:n1>/<int:n2>', add),
-    path('plus/', plus),
-    path('parabola/form/', parabola_view),
-    path('parabola/calc/', parabola)
+    path('', main),
+    path('profile/', profile),
+    path('list/', list_users),
+    path('admin/', admin.site.urls)
 ]

@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center h-100">
+    {% for id, login, password, gender, confirm in users %}
+        <div class="card m-2" style="width: 18rem;">
+            <img src="https://www.adobe.com/products/media_14562ad96c12a2f3030725ae81bd3ede1c68cb783.jpeg?width=750&format=jpeg&optimize=medium"
+                 class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{ login }}</h5>
+                <p class="card-text">{{ password }}</p>
+                <p class="card-text">{{ gender }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
