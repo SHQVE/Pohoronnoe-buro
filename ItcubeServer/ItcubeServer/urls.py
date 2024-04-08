@@ -18,12 +18,13 @@
 
 from django.contrib import admin
 from django.urls import path
-from ItcubeServer.views.input_views import registration, profile, list_users
-from ItcubeServer.views.views import main
+from database.views import (task_list, task_form,
+                            task_create, task_delete)
 
 urlpatterns = [
-    path('', main),
-    path('profile/', profile),
-    path('list/', list_users),
+    path('', task_list),
+    path('taskForm/', task_form),
+    path('taskCreate/', task_create),
+    path('taskDelete/<task_id>', task_delete),
     path('admin/', admin.site.urls)
 ]
