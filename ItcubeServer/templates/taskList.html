@@ -1,18 +1,22 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div class="d-flex justify-content-center align-items-center h-100 flex-wrap">
-    {% for id, text, date, person in tasks %}
-        <div class="card m-1 w-100">
-            <div class="card-body p-2">
-                <form action="/taskDelete/{{ id }}">
-                    <button type="submit" class="btn-close position-absolute top-0 end-0 m-3" aria-label="Close"></button>
-                </form>
-                <h5 class="card-title">{{ text }}</h5>
-                <p class="card-text">{{ date }}</p>
-                <p class="card-text">{{ person }}</p>
+    <div class="w-100 d-flex flex-wrap justify-content-start">
+        {% for id, text, date, person in tasks %}
+            <div class="card m-1 ms-3 mt-2 pe-5">
+                <div class="card-body p-2">
+                    <form action="/taskDelete/{{ id }}">
+                        <button type="submit" class="btn-close position-absolute top-0 end-0 m-3"
+                                aria-label="Close"></button>
+                    </form>
+                    <h5 class="card-title">{{ text }}</h5>
+                    <p class="card-text">{{ date }}</p>
+                    <p class="card-text">{{ person }}</p>
+                </div>
             </div>
+        {% endfor %}
+        <div class="m-1 ms-3 mt-2 pe-5 d-flex align-items-center">
+            <a href="/taskForm/" type="button" class="btn btn-outline-success">+</a>
         </div>
-    {% endfor %}
-</div>
+    </div>
 {% endblock content %}

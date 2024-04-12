@@ -17,7 +17,7 @@
 # https://github.com/viltskaa/djangoTest/blob/main/itcubeSite/command.txt
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from database.views import (task_list, task_form,
                             task_create, task_delete)
 
@@ -26,5 +26,7 @@ urlpatterns = [
     path('taskForm/', task_form),
     path('taskCreate/', task_create),
     path('taskDelete/<task_id>', task_delete),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls'))
 ]
