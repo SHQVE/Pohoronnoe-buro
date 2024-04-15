@@ -19,13 +19,14 @@
 from django.contrib import admin
 from django.urls import path, include
 from database.views import (task_list, task_form,
-                            task_create, task_delete)
+                            task_create, task_delete, task_complete)
 
 urlpatterns = [
     path('', task_list),
     path('taskForm/', task_form),
     path('taskCreate/', task_create),
     path('taskDelete/<task_id>', task_delete),
+    path('taskComplete/<task_id>', task_complete),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls'))

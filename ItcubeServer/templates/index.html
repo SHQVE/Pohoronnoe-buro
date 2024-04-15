@@ -44,6 +44,8 @@
     {% block content %}
     {% endblock content %}
 </div>
-<a href="/taskForm/" type="button" class="btn btn-outline-success position-absolute end-0 bottom-0 m-5 cringe">+</a>
+{% if user.is_authenticated %}
+    <a href="/taskForm/" type="button" class="btn btn-outline-success position-absolute end-0 bottom-0 m-5 cringe">+</a>
+{% endif %}
 </body>
 </html>

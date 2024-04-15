@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Task
 
+import datetime
+
 
 def task_list(request):
     tasks = Task.objects.all()
@@ -11,7 +13,10 @@ def task_list(request):
             task.id,
             task.text,
             task.date,
-            task.person
+            task.author,
+            task.checked,
+            task.implementer,
+            task.date_implementation
         ))
 
     return render(request, 'taskList.html', {
@@ -28,9 +33,10 @@ def task_create(request):
 
     text = args.get('text', '')
     date = args.get('date', '')
-    person = args.get('person', 'default')
 
-    task = Task(text=text, person=person, date=date)
+    task = Task(text=text,
+                author=request.user,
+                date=date)
     task.save()
 
     return redirect("/")
@@ -38,4 +44,15 @@ def task_create(request):
 
 def task_delete(request, task_id):
     Task.objects.filter(id=task_id).delete()
+    return redirect("/")
+
+
+def task_complete(request, task_id):
+    task = Task.objects.get(id=task_id)
+
+    task.implementer = request.user
+    task.date_implementation = datetime.datetime.now().date()
+    task.checked = True
+    task.save()
+
     return redirect("/")
