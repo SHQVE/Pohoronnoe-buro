@@ -31,13 +31,16 @@ def task_form(request):
 def task_create(request):
     args = request.GET
 
-    text = args.get('text', '')
-    date = args.get('date', '')
+    brand = args.get('brand', "")
+    company = args.get('company', "")
+    price = args.get('price', "")
 
-    task = Task(text=text,
-                author=request.user,
-                date=date)
-    task.save()
+    # date = args.get('date', '')
+
+    # task = Task(text=text,
+    #             author=request.user,
+    #             date=date)
+    # task.save()
 
     return redirect("/")
 
