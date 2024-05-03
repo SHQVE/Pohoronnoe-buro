@@ -1,61 +1,74 @@
 from django.shortcuts import render, redirect
-from .models import Task
+from .models import Task, Car
 
 import datetime
 
 
-def task_list(request):
-    tasks = Task.objects.all()
+def car_list(request):
+    cars = Car.objects.all()
     result = []
 
-    for task in tasks:
+    for car in cars:
         result.append((
-            task.id,
-            task.text,
-            task.date,
-            task.author,
-            task.checked,
-            task.implementer,
-            task.date_implementation
+            car.id,
+            car.brand,
+            car.company,
+            car.body,
+            car.type,
+            car.weight,
+            car.price
         ))
 
-    return render(request, 'taskList.html', {
-        'tasks': result
+    return render(request, 'carList.html', {
+        'cars': result
     })
 
 
-def task_form(request):
-    return render(request, 'taskForm.html')
+def car_form(request):
+    return render(request, 'carForm.html')
 
 
-def task_create(request):
+def car_create(request):
     args = request.GET
 
     brand = args.get('brand', "")
     company = args.get('company', "")
-    price = args.get('price', "")
-
-    # date = args.get('date', '')
+    price = args.get('price', 0)
+    type = args.get('type', "")
+    weight = args.get('weight', 0)
+    body = args.get('body', "")
+    horse_power = args.get('horsePower', 0)
 
     # task = Task(text=text,
     #             author=request.user,
     #             date=date)
     # task.save()
+    car = Car(
+        brand=brand,
+        company=company,
+        price=price,
+        type=type,
+        weight=weight,
+        body=body,
+        horse_power=horse_power,
+        levy=horse_power*0.3
+    )
+    car.save()
 
     return redirect("/")
 
 
-def task_delete(request, task_id):
-    Task.objects.filter(id=task_id).delete()
+def car_delete(request, car_id):
+    Car.objects.filter(id=car_id).delete()
     return redirect("/")
 
 
-def task_complete(request, task_id):
-    task = Task.objects.get(id=task_id)
+def car_complete(request, car_id):
+    car = Car.objects.get(id=car_id)
 
-    task.implementer = request.user
-    task.date_implementation = datetime.datetime.now().date()
-    task.checked = True
-    task.save()
+    car.implementer = request.user
+    car.date_implementation = datetime.datetime.now().date()
+    car.checked = True
+    car.save()
 
     return redirect("/")

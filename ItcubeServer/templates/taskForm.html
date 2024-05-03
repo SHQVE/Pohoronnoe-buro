@@ -16,44 +16,52 @@
         <form action="/taskCreate" class="pt-1 w-100">
             <div class="input-group mb-3">
                 <span class="input-group-text fw-bold w-25" id="basic-addon1">Car Brand</span>
-                <input type="text" class="form-control" name="brand" placeholder="text" maxlength="255">
+                <input type="text" class="form-control" name="brand" placeholder="Cresta" maxlength="63">
             </div>
-<!--            <div class="input-group mb-3">-->
-<!--                <span class="input-group-text fw-bold w-25" id="basic-addon1">Date</span>-->
-<!--                <input type="date" class="form-control" name="date" minlength="8">-->
-<!--            </div>-->
-             <div class="input-group mb-3">
+            <!--            <div class="input-group mb-3">-->
+            <!--                <span class="input-group-text fw-bold w-25" id="basic-addon1">Date</span>-->
+            <!--                <input type="date" class="form-control" name="date" minlength="8">-->
+            <!--            </div>-->
+            <div class="input-group mb-3">
                 <span class="input-group-text fw-bold w-25" id="basic-addon2">Name your company</span>
-                <input type="text" class="form-control" name="company" placeholder="text" maxlength="255">
+                <input type="text" class="form-control" name="company" placeholder="Toyota" maxlength="63">
             </div>
-             <i> <h6>Choose a car Body:</h6> <i>
+            <h6 class="fst-italic">Choose a car Body:</h6>
             <select class="pt-1 form-select" aria-label="Пример выбора по умолчанию">
-  <option selected>...</option>
-  <option value="1">Coupé</option>
-  <option value="2">Universal</option>
-  <option value="3">Convertible</option>
-  <option value="4">Limousine</option>
-  <option value="5">Sedan</option>
-  <option value="6">SUV</option>
-  <option value="7">Hatchback</option>
-  <option value="8">Pickup</option>
-</select>
-            <i> <h6>Choose a car Class:</h6> <i>
-            <select class="pt-1 form-select" aria-label="Пример выбора по умолчанию">
-  <option selected>...</option>
-  <option value="1">A (mini cars)</option>
-  <option value="2">B (small cars)</option>
-  <option value="3">C (mid-size cars)</option>
-  <option value="4">D (full-size cars)</option>
-  <option value="5">E (business cars)</option>
-  <option value="6">F (executive cars)</option>
-  <option value="7">S (sports coupes)</option>
-  <option value="8">M (minivans and commercial vehicles)</option>
-  <option value="9">J (crossovers and SUVs)</option>
-</select>
-                <div class="pt-3 input-group mb-3">
-                <span class="input-group-text fw-bold w-25" id="basic-addon3">Car Price</span>
-                <input type="text" class="form-control" name="price" placeholder="$" maxlength="255">
+                <option selected>...</option>
+                <option value="Coupé">Coupé</option>
+                <option value="Universal">Universal</option>
+                <option value="Convertible">Convertible</option>
+                <option value="Limousine">Limousine</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="Pickup">Pickup</option>
+            </select>
+            <i><h6>Choose a car Class:</h6></i>
+            <select class="pt-1 form-select" aria-label="Пример выбора по умолчанию" name="type">
+                <option selected>...</option>
+                <option value="A (mini cars)">A (mini cars)</option>
+                <option value="B (small cars)">B (small cars)</option>
+                <option value="C (mid-size cars)">C (mid-size cars)</option>
+                <option value="D (full-size cars)">D (full-size cars)</option>
+                <option value="E (business cars)">E (business cars)</option>
+                <option value="F (executive cars)">F (executive cars)</option>
+                <option value="S (sports coupes)">S (sports coupes)</option>
+                <option value="M (minivans and commercial vehicles)">M (minivans and commercial vehicles)</option>
+                <option value="J (crossovers and SUVs)">J (crossovers and SUVs)</option>
+            </select>
+            <div class="pt-3 input-group mb-1">
+                <span class="input-group-text fw-bold w-25" id="basic-addon3">Horse Power</span>
+                <input type="number" class="form-control" name="horsePower" value="0" maxlength="255">
+            </div>
+            <div class="pt-3 input-group mb-2">
+                <span class="input-group-text fw-bold w-25" id="basic-addon4">Weight</span>
+                <input type="number" class="form-control" name="weight" value="0" maxlength="255">
+            </div>
+            <div class="pt-3 input-group mb-2">
+                <span class="input-group-text fw-bold w-25" id="basic-addon5">Car Price</span>
+                <input type="number" class="form-control" name="price" placeholder="$" maxlength="255">
             </div>
             <div class="pt-3 input-group w-100">
                 <button type="submit" class="btn btn-outline-success w-50 text-dark">Create Auto</button>
