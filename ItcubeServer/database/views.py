@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Task, Car
+from .models import Car
 
 import datetime
 
@@ -16,7 +16,8 @@ def car_list(request):
             car.body,
             car.type,
             car.weight,
-            car.price
+            car.price,
+            car.levy
         ))
 
     return render(request, 'carList.html', {
@@ -51,7 +52,9 @@ def car_create(request):
         weight=weight,
         body=body,
         horse_power=horse_power,
-        levy=horse_power*0.3
+        levy=int(horse_power) * 0.3,
+        author=request.user,
+        date=datetime.date.today()
     )
     car.save()
 

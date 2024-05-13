@@ -2,7 +2,7 @@
 
 {% block content %}
     <ol class="list-group p-1 list-group-numbered">
-        {% for id, text, date, author, complete, implementor, date_im in tasks %}
+        {% for id, brand, company, body, type, weight, price in cars %}
             <li class="list-group-item d-flex justify-content-between align-items-start
                       {% if complete %}bg-success text-white {% endif %}">
                 <div class="m-2">
@@ -14,11 +14,8 @@
                     </svg>
                 </div>
                 <div class="ms-2 me-auto">
-                    <div class="fw-bold">#{{ id }} <i class="h5">{{ text }}</i></div>
+                    <div class="fw-bold">#{{ id }} <i class="h5">{{ brand }} {{ company }}</i></div>
                     Date create: {{ date }}
-                    {% if complete %}
-                        <i class="text-success bg-light p-1 rounded ms-3">Date implement: {{ date_im }}</i>
-                    {% endif %}
                 </div>
                 {% if user.is_authenticated %}
                     {% if user.username == author.username %}
@@ -30,11 +27,6 @@
                 <span class="badge text-white bg-secondary p-2">
                     {{ author }}
                 </span>
-                {% if complete %}
-                    <span class="badge text-dark bg-info p-2 ms-1">
-                    {{ implementor }}
-                </span>
-                {% endif %}
                 {% if user.is_authenticated and not complete %}
                     <form action="/taskComplete/{{ id }}">
                         <button type="submit" class="btn btn-outline-success py-3 ms-3">
