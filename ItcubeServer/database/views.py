@@ -17,7 +17,9 @@ def car_list(request):
             car.type,
             car.weight,
             car.price,
-            car.levy
+            car.levy,
+            car.author,
+            car.date
         ))
 
     return render(request, 'carList.html', {
@@ -39,6 +41,9 @@ def car_create(request):
     weight = args.get('weight', 0)
     body = args.get('body', "")
     horse_power = args.get('horsePower', 0)
+    author = args.get('author')
+    date = args.get('date')
+    color = args.get('color')
 
     # task = Task(text=text,
     #             author=request.user,
@@ -54,7 +59,8 @@ def car_create(request):
         horse_power=horse_power,
         levy=int(horse_power) * 0.3,
         author=request.user,
-        date=datetime.date.today()
+        date=datetime.date.today(),
+        color=color
     )
     car.save()
 

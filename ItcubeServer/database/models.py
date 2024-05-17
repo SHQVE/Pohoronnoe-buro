@@ -12,6 +12,7 @@ class Car(models.Model):
     price = models.IntegerField(null=False, default=0)
     levy = models.FloatField(null=False, default=0.0)
     horse_power = models.IntegerField(null=False, default=0)
+    color = models.CharField(null=False, max_length=31)
 
     date = models.DateField(null=False)
     author = models.ForeignKey(
