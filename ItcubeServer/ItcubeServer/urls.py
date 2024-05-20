@@ -23,9 +23,9 @@ from database.views import (car_list, car_form,
 
 urlpatterns = [
     path('',  car_list),
-    path('taskForm/', car_form),
-    path('taskCreate/', car_create),
-    path('taskDelete/<task_id>', car_delete),
+    path('carForm/', car_form),
+    path('carCreate/', car_create),
+    path('carDelete/<task_id>', car_delete),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls'))
