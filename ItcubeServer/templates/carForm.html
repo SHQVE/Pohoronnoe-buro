@@ -13,7 +13,7 @@
 <div class="card w-50">
     <div class="card-body d-flex flex-column align-items-center w-100">
         <h5>Create Your Car</h5>
-        <form action="/taskCreate" class="pt-1 w-100">
+        <form action="/carCreate" class="pt-1 w-100">
             <div class="input-group mb-3">
                 <span class="input-group-text fw-bold w-25" id="basic-addon1">Car Brand</span>
                 <input type="text" class="form-control" name="brand" placeholder="Cresta" maxlength="63">
@@ -63,6 +63,15 @@
                 <span class="input-group-text fw-bold w-25" id="basic-addon5">Car Price</span>
                 <input type="number" class="form-control" name="price" placeholder="$" maxlength="255">
             </div>
+            <select class="form-select" aria-label="Пример выбора по умолчанию" name="color">
+                <option selected>Choose a car Color:</option>
+                <option value="black">black</option>
+                <option value="white">white</option>
+                <option value="grey">grey</option>
+                <option value="blue">blue</option>
+                <option value="red">red</option>
+                <option value="yellow">yellow</option>
+            </select>
             <div class="pt-3 input-group w-100">
                 <button type="submit" class="btn btn-outline-success w-50 text-dark">Create Auto</button>
                 <a href="/" class="btn btn-outline-danger w-50">Cancel</a>

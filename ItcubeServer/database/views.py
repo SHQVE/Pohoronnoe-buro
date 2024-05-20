@@ -19,7 +19,9 @@ def car_list(request):
             car.price,
             car.levy,
             car.author,
-            car.date
+            car.date,
+            car.color,
+            car.horse_power
         ))
 
     return render(request, 'carList.html', {
