@@ -11,8 +11,8 @@ def car_list(request):
     for car in cars:
         result.append((
             car.id,
-            car.brand,
             car.company,
+            car.brand,
             car.body,
             car.type,
             car.weight,
@@ -36,8 +36,8 @@ def car_form(request):
 def car_create(request):
     args = request.GET
 
-    brand = args.get('brand', "")
     company = args.get('company', "")
+    brand = args.get('brand', "")
     price = args.get('price', 0)
     type = args.get('type', "")
     weight = args.get('weight', 0)
@@ -52,8 +52,8 @@ def car_create(request):
     #             date=date)
     # task.save()
     car = Car(
-        brand=brand,
         company=company,
+        brand=brand,
         price=price,
         type=type,
         weight=weight,
