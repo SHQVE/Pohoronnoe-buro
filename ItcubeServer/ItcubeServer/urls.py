@@ -14,6 +14,8 @@
     1. Импортируем функцию include(): from django.urls import include, path
     2. Добавьте URL в urlpatterns: path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 # https://github.com/viltskaa/djangoTest/blob/main/itcubeSite/command.txt
 
 from django.contrib import admin
@@ -24,9 +26,12 @@ from database.views import (car_list, car_form,
 urlpatterns = [
     path('',  car_list),
     path('carForm/', car_form),
-    path('carCreate/', car_create),
+    path('carCreate', car_create),
     path('carDelete/<car_id>', car_delete),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls'))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
